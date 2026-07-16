@@ -1,7 +1,7 @@
 package com.example.cryptobot.config;
 
 import com.example.cryptobot.bot.CryptoBot;
-import com.example.cryptobot.client.BinanceClient;
+import com.example.cryptobot.client.BybitClient;
 import com.example.cryptobot.jpa.SubscribeService;
 import com.example.cryptobot.service.CryptoService;
 import com.example.cryptobot.service.PriceScheduler;
@@ -27,7 +27,7 @@ public class AppConfig {
     }
 
     @Bean
-    public CryptoService cryptoService(BinanceClient client) {
+    public CryptoService cryptoService(BybitClient client) {
         return new CryptoService(client);
     }
 
@@ -44,8 +44,8 @@ public class AppConfig {
     }
 
     @Bean
-    public BinanceClient binanceClient(ObjectMapper objectMapper) {
-        return new BinanceClient(WebClient.create("https://api.binance.com"), objectMapper);
+    public BybitClient bybitClient(ObjectMapper objectMapper) {
+        return new BybitClient(WebClient.create("https://api.bybit.com"), objectMapper);
     }
 
     @Bean

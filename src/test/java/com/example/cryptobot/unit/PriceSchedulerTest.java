@@ -33,8 +33,8 @@ class PriceSchedulerTest {
         eth.setCoin("ETH");
 
         when(subscribeService.getAll()).thenReturn(List.of(btc, eth));
-        when(cryptoService.getPrice("BTC")).thenReturn("60133.99000000");
-        when(cryptoService.getPrice("ETH")).thenReturn("1561.76000000");
+        when(cryptoService.getPrice("BTC")).thenReturn("60133.99");
+        when(cryptoService.getPrice("ETH")).thenReturn("1561.76");
 
         priceScheduler.sendPrices();
 
@@ -43,8 +43,8 @@ class PriceSchedulerTest {
         verify(cryptoService).getPrice("BTC");
         verify(cryptoService).getPrice("ETH");
 
-        verify(bot).sendMessage("1", "⏱ BTC: 60133.99000000 USDT");
-        verify(bot).sendMessage("2", "⏱ ETH: 1561.76000000 USDT");
+        verify(bot).sendMessage("1", "⏱ BTC: 60133.99 USDT");
+        verify(bot).sendMessage("2", "⏱ ETH: 1561.76 USDT");
 
         verifyNoMoreInteractions(bot);
     }

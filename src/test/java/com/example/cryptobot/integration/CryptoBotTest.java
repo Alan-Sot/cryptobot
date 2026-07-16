@@ -85,7 +85,7 @@ public class CryptoBotTest {
 
         var response = messages.getFirst().getText();
 
-        assertEquals("BTC: 60133.99000000 USDT", response);
+        assertEquals("BTC: 60133.99 USDT", response);
     }
 
     @Test
@@ -96,7 +96,7 @@ public class CryptoBotTest {
 
         var response = messages.getFirst().getText();
 
-        assertEquals("ETH: 1561.76000000 USDT", response);
+        assertEquals("ETH: 1561.76 USDT", response);
     }
 
     @Test

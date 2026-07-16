@@ -1,6 +1,6 @@
 package com.example.cryptobot.integration.config;
 
-import com.example.cryptobot.client.BinanceClient;
+import com.example.cryptobot.client.BybitClient;
 import com.example.cryptobot.config.TelegramBotConfig;
 import com.example.cryptobot.jpa.SubscribeRepository;
 import com.example.cryptobot.jpa.SubscribeService;
@@ -23,19 +23,19 @@ public class CryptoBotTestConfiguration {
 
     @Bean
     @Primary
-    public BinanceClient binanceTestClient() {
-        var client = mock(BinanceClient.class);
+    public BybitClient bybitTestClient() {
+        var client = mock(BybitClient.class);
 
-        when(client.getPrice("BTCUSDT")).thenReturn("60133.99000000");
-        when(client.getPrice("ETHUSDT")).thenReturn("1561.76000000");
+        when(client.getPrice("BTCUSDT")).thenReturn("60133.99");
+        when(client.getPrice("ETHUSDT")).thenReturn("1561.76");
 
         return client;
     }
 
     @Bean
     @Primary
-    public CryptoService cryptoServiceTest(@Qualifier("binanceTestClient") BinanceClient binanceTestClient) {
-        return new CryptoService(binanceTestClient);
+    public CryptoService cryptoServiceTest(@Qualifier("bybitTestClient") BybitClient bybitTestClient) {
+        return new CryptoService(bybitTestClient);
     }
 
     @Bean
