@@ -46,6 +46,7 @@ public class CryptoBot extends TelegramLongPollingBot {
             case "🔔 Подписаться BTC" -> {
                 subscribeService.subscribe(chatId, "BTC");
                 sendWithKeyboard(chatId, "BTC подписка включена ✅", createKeyboard(chatId));
+                send(chatId, "⏱ BTC: " + cryptoService.getPrice("BTC") + " USDT");
             }
             case "❌ Отписаться BTC" -> {
                 subscribeService.unsubscribe(chatId, "BTC");
@@ -54,6 +55,7 @@ public class CryptoBot extends TelegramLongPollingBot {
             case "🔔 Подписаться ETH" -> {
                 subscribeService.subscribe(chatId, "ETH");
                 sendWithKeyboard(chatId, "ETH подписка включена ✅", createKeyboard(chatId));
+                send(chatId, "⏱ ETH: " + cryptoService.getPrice("ETH") + " USDT");
             }
             case "❌ Отписаться ETH" -> {
                 subscribeService.unsubscribe(chatId, "ETH");
