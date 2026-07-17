@@ -1,6 +1,6 @@
 package com.example.cryptobot.unit;
 
-import com.example.cryptobot.client.BybitClient;
+import com.example.cryptobot.client.CoinGeckoClient;
 import com.example.cryptobot.service.CryptoService;
 import org.junit.jupiter.api.Test;
 
@@ -11,9 +11,9 @@ import static org.mockito.Mockito.when;
 class CryptoServiceTest {
     @Test
     void shouldConvertToUsdt() {
-        BybitClient client = mock(BybitClient.class);
-        when(client.getPrice("BTCUSDT")).thenReturn("60133.99");
-        when(client.getPrice("ETHUSDT")).thenReturn("1561.76");
+        CoinGeckoClient client = mock(CoinGeckoClient.class);
+        when(client.getPrice("BTC")).thenReturn("60133.99");
+        when(client.getPrice("ETH")).thenReturn("1561.76");
 
         CryptoService service = new CryptoService(client);
 

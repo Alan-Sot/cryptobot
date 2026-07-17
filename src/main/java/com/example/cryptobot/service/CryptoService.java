@@ -1,19 +1,19 @@
 package com.example.cryptobot.service;
 
-import com.example.cryptobot.client.BybitClient;
+import com.example.cryptobot.client.CoinGeckoClient;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class CryptoService {
-    private final BybitClient client;
+    private final CoinGeckoClient client;
 
-    public CryptoService(BybitClient client) {
+    public CryptoService(CoinGeckoClient client) {
         this.client = client;
     }
 
     public String getPrice(String coin) {
-        var rawPrice = client.getPrice(coin.toUpperCase() + "USDT");
+        var rawPrice = client.getPrice(coin.toUpperCase());
 
         try {
             return new BigDecimal(rawPrice)
